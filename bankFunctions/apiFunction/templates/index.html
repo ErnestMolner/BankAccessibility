@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="ca">
+<!--This is an imput file to create the key file and encypted file to be used it other processes, zero knowledge needed-->
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h1>Entra dades personals i guardar-les encriptades</h1>
+  <form name="forms" id="forms">
+    <label>Nom del document a salvar
+        <input name="fileName" type="text" />
+    </label>
+    <br>
+    <label>Nom de la clau a salvar
+        <input name="key" type="text" />
+    </label>
+    <br>
+    <label>Nom de usuari
+        <input name="user" type="text" />
+    </label>
+    <br>
+    <label>Password
+        <input name="pass" type="text" />
+    </label>
+    <br>
+    <label>email
+        <input name="email" type="text" />
+    </label>
+    <br>
+    <label>email POW
+        <input name="emailpass" type="text" />
+    </label>
+    <br>
+    <button type="submit">Executar</button>
+  </form>
+  <br>
+  <p id="box" style="color: green;"></p>
+
+  <script>
+    // get the form element from dom
+    const formElement = document.querySelector('form#forms')
+    // convert the form to JSON
+    const getFormJSON = (form) => {
+      const data = new FormData(form);
+      return Array.from(data.keys()).reduce((result, key) => {
+        result[key] = data.get(key);
+        return result;
+      }, {});
+    };
+
+    // handle the form submission event, prevent default form behaviour, check validity, convert form to JSON
+    const handler = (event) => {
+      event.preventDefault();
+      const valid = formElement.reportValidity();
+      if (valid) {
+        const result = getFormJSON(formElement);
+        console.log(result)
+        //TestData send
+        const URL = 'http://127.0.0.1:5000/addBankInfoAndEncryp'
+        const data = result
+        // Send a post request
+        fetch(URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+        "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        //TestData send
+        //It shows a response on the html
+        const box = document.getElementById('box');
+        box.innerHTML = 'Dades guardades i encriptades';
+
+      }
+    }
+
+    formElement.addEventListener("submit", handler)
+  </script>
+</body>
+</html>

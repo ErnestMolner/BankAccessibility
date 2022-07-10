@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="ca">
+<!--This uses the key and the encripted file to execute functions-->
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <h1>Descarregar totals i fer transferencia</h1>
+  <label>Selecciona l'opció desitjada</label>
+  <select id="option">
+    <option value="makeTransfer">Fer transferència</option>
+    <option value="checkTotals">Consulta totals</option>
+  </select>
+  <form name="forms" id="forms">
+    <label>Nom del document
+        <input name="fileName" type="text" />
+    </label>
+    <br>
+    <label>Nom de la clau
+        <input name="key" type="text" />
+    </label>
+    <br>
+    <label>Valor a trasferir
+      <input name="import" type="text" />
+    </label>
+    <br>
+    <button type="submit">Executar</button>
+  </form>
+  <br>
+  <p id="box" style="color: green;"></p>
+
+  <script>
+    // get the form element from dom
+    const formElement = document.querySelector('form#forms')
+    // convert the form to JSON
+    const getFormJSON = (form) => {
+      const data = new FormData(form);
+      return Array.from(data.keys()).reduce((result, key) => {
+        result[key] = data.get(key);
+        return result;
+      }, {});
+    };
+
+    // handle the form submission event, prevent default form behaviour, check validity, convert form to JSON
+    const handler = (event) => {
+      event.preventDefault();
+      const valid = formElement.reportValidity();
+      if (valid) {
+        const result = getFormJSON(formElement);
+        console.log(result)
+        //Data send
+        //Select value based on selector value
+        var value = document.getElementById('option').value;
+        const URL = `http://127.0.0.1:5000/${value}`
+        console.log(URL)
+        const data = result
+        // Send a post request
+        fetch(URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+        "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        //Data send
+        //It shows a response on the html
+        const box = document.getElementById('box');
+        box.innerHTML = 'Realitzant la funcio selecionada';
+
+      }
+    }
+
+    formElement.addEventListener("submit", handler)
+  </script>
+</body>
+</html>

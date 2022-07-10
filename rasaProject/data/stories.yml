@@ -1,0 +1,67 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: make transfer
+  steps:
+  - intent: makeTransaction
+  - action: utter_amount-of-money
+  - intent: affirm
+  - action: utter_confirmation
+
+- story: faild transfer
+  steps:
+  - intent: makeTransaction
+  - action: utter_amount-of-money
+  - intent: deny
+  - action: utter_goodbye
+
+- story: make transfer with steps
+  steps:
+  - intent: wantToMakeTransaction
+  - action: utter_tell_amount
+  - intent: makeTransaction
+  - action: utter_amount-of-money
+  - intent: affirm
+  - action: utter_confirmation
+
+- story: faild transaction with steps
+  steps:
+  - intent: wantToMakeTransaction
+  - action: utter_tell_amount
+  - intent: makeTransaction
+  - action: utter_amount-of-money
+  - intent: deny
+  - action: utter_goodbye
+
+- story:  check expenses
+  steps:
+  - intent: checkTransactions
+  - action: utter_check_totals
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

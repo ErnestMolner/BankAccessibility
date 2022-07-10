@@ -1,0 +1,121 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - bon dia
+    - ei
+    - bones
+    - bon mati
+    - bona tarda
+    - bones
+    - eps
+
+- intent: goodbye
+  examples: |
+    - adeu
+    - fins despres
+    - que vagi be
+    - bona nit
+    - chiao
+    - goodbye
+    - que tinguis un bon dia
+
+- intent: affirm
+  examples: |
+    - si
+    - s
+    - esclar
+    - dacord
+    - sona correcte
+    - correcte
+    - entesos
+    - fantastic
+    - ok
+    - okay
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - mai
+    - no crec
+    - aixo no m'hagrada
+    - ni de conya
+    - esclar que no
+    - canclear
+    - denegar
+    - nop
+    - sortir
+    - exit
+    - stop
+
+- intent: mood_great
+  examples: |
+    - fantastic
+    - perfecte
+    - en top forma
+    - llest per domminar
+    - fantastic
+    - em sento molt be
+    - soc l'amo
+    - feliç
+    - content
+    - be
+    - molt be
+
+- intent: mood_unhappy
+  examples: |
+    - el dia ha sigut una merda
+    - estic trist
+    - no hem trovo molt be
+    - estic desmoralitzat
+    - super trist
+    - molt content
+    - trist
+    - descontent
+    - no be
+    - no massa be
+
+- intent: bot_challenge
+  examples: |
+    - ets un bot?
+    - ets huma?
+    - estic parlant amb un bot?
+    - es tracta d'un bot?
+
+
+- intent: makeTransaction
+  examples: |
+    - m'hagradaria transferir 1000€
+    - m'hagradaria transferir 1000 euros
+    - Vull transferir 800 euros
+    - Trasfereix 900 dollars
+    - envia 500 siusplau
+    - enviali al tiet 400 $
+    - 1000 euro
+    - 678 euros
+    - 507 €
+    - enviar 500 euro
+
+- intent: wantToMakeTransaction
+  examples: |
+    - vull fer una transferencia
+    - transferencia siusplau
+    - m'hagradaria transferir diners
+    - m'hagradaria enviar diners
+    - vull realitzar una transferencia
+
+- intent: checkTransactions
+  examples: |
+    - m'hagradaria saver les meves transacions
+    - pots descarregar les meves transaccions?
+    - totals
+    - llistar costos del mes
+    - donam els gastos del mes siusplau
+    - donam els costos del mes
+    - llsta costos del mes
+    - costos
+    - llista les meves transferencies
+    - Consulta de càrrecs

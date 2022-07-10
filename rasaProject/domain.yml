@@ -1,0 +1,61 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - makeTransaction
+  - wantToMakeTransaction
+  - checkTransactions
+
+entities:
+  - amount-of-money
+
+
+slots:
+  amount-of-money:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: amount-of-money
+
+
+responses:
+  utter_greet:
+  - text: "Hey! que tal estas?"
+
+  utter_cheer_up:
+  - text: "Aqui tens una cosa per millorar el teu estat d'anim:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "T'ha ajudat?"
+
+  utter_happy:
+  - text: "Fantastic, continua"
+
+  utter_goodbye:
+  - text: "adeu"
+
+  utter_iamabot:
+  - text: "Soc un bot creat per el TFG, d'Ernest Molner."
+
+  utter_amount-of-money:
+  - text: "Estas segur que vols transferir {amount-of-money} EURO"
+
+  utter_tell_amount:
+  - text: "Digues el valor a transferir"
+
+  utter_check_totals:
+  - text: "Comprovant costos"
+
+  utter_confirmation:
+  - text: "Entesos, proseguim amb la transferencia de {amount-of-money} EURO"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
