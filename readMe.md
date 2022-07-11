@@ -210,7 +210,7 @@ Move the driver to the correct directory using the following command
 
 7.    **Install rasa**
 
-        `Enter the 3.8 python virtual environment 
+        Enter the 3.8 python virtual environment 
         And install rasa use the following commands 
 
         `source ./venv/bin/activate`
