@@ -4,7 +4,8 @@
 
 -   Intention
     
-        The objective of this project is to make the website of the bank Credit Andorra more easily accessible to accessibility challenged users. 
+        The objective of this project is to make the website of the bank Credit Andorra more easily accessible to accessibility challenged users.
+        
         The project manly centers around conversational accessibility, so the users that would benefit the most form it would be: 
         visually impaired users, elderly users or any type of users that have difficulty navigating the banks website, but is capable of maintaining a conversation. 
 
@@ -14,9 +15,8 @@
         Currently the project is just a probe of concept demo, it is a bit complicated to launch and set up, so don’t feel discouraged if you encounter roadblock when launching it.
 
         It is currently only capable of preforming 3 action: make a bank transfer, check account charges and schedule sequential transfers.
-
         When the AI triggers an action, it currently launches a browser instance and controls the website of the bank by using the selenium driver. 
-        
+       
         This is due to the fact that the bank does not currently have a public API available. 
         
         The double factor of authentication also needs to be circumvented; this is done by resending the received text messages from the phone to an email address. 
