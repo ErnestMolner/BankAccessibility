@@ -4,7 +4,9 @@
 
 -   Intention
     
-        The objective of this project is to make the website of the bank Credit Andorra more easily accessible to accessibility challenged users. The project manly centers around conversational accessibility, so the users that would benefit the most form it would be: visually impaired users, elderly users or any type of users that have difficulty navigating the banks website, but is capable of maintaining a conversation. 
+        The objective of this project is to make the website of the bank Credit Andorra more easily accessible to accessibility challenged users. 
+        The project manly centers around conversational accessibility, so the users that would benefit the most form it would be: 
+        visually impaired users, elderly users or any type of users that have difficulty navigating the banks website, but is capable of maintaining a conversation. 
 
         This project basically allows users to maintain a conversation with an AI that will perform the desired actions in the context of the bank’s functionalities.
 -   State
@@ -13,7 +15,12 @@
 
         It is currently only capable of preforming 3 action: make a bank transfer, check account charges and schedule sequential transfers.
 
-        When the AI triggers an action, it currently launches a browser instance and controls the website of the bank by using the selenium driver. This is due to the fact that the bank does not currently have a public API available. The double factor of authentication also needs to be circumvented; this is done by resending the received text messages from the phone to an email address. And then extracting the received message to use it in the site. This will hopefully all change when the bank make a public API available.
+        When the AI triggers an action, it currently launches a browser instance and controls the website of the bank by using the selenium driver. 
+        
+        This is due to the fact that the bank does not currently have a public API available. 
+        
+        The double factor of authentication also needs to be circumvented; this is done by resending the received text messages from the phone to an email address. 
+        And then extracting the received message to use it in the site. This will hopefully all change when the bank make a public API available.
 
 ##      Structure
 
